@@ -18,24 +18,20 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 // Function for pulling information from youtube
-function youtubeAPI(searchTerm) {
-  youtubeResults = [];
-
-  var queryURL =
-    "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=" +
-    searchTerm +
-    "&key=AIzaSyD0ANJZ_xV6795iaJd5Rm42wrZIqWnzxkI";
+function imageAPI(searchTerm) {
+  var array = [];
+  var flickerAPI =
+    "https://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=" +
+    searchTerm;
   $.ajax({
-    url: queryURL,
-    method: "GET"
+    url: flickerAPI,
+    dataType: "jsonp", // jsonp
+    jsonpCallback: "jsonFlickrFeed"
   }).then(function(response) {
-    var results = response.items;
-
-    for (var i = 0; i < results.length; i++) {
-      youtubeResults.push(results[i].snippet.thumbnails.high.url);
+    for (var i = 0; i < 9; i++) {
+      array.push(response.items[i].media.m);
     }
-
-    populateResults(youtubeResults);
+    populateResults(array);
   });
 }
 
