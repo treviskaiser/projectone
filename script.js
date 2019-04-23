@@ -2,10 +2,11 @@
 
 // Variable Declarations
 var youtubeResults, movieResults, googleResults, searchQuery;
+var counter = 0;
+var page = 0;
 
 // Firebase
 
-// Initialize Firebase
 var config = {
   apiKey: "AIzaSyA6CUw_ZqftdMnYLWf0BivA-UohmxIaHs4",
   authDomain: "instafan-a04f2.firebaseapp.com",
@@ -74,6 +75,7 @@ function giffyAPI(searchQuery) {
 }
 
 function createPage() {
+  console.log("enough already");
   //Pushing to the final page
 }
 
@@ -95,6 +97,11 @@ function populateVideos(arry) {
         arry[i] +
         '"allowfullscreen></iframe></div>'
     );
+    $("#card-" + i).append(
+      '<a href="#" class="btn btn-primary add" url=https://www.youtube.com/embed/' +
+        arry[i] +
+        ">Select</a>"
+    );
   }
 }
 
@@ -111,14 +118,40 @@ $("#inputButton").on("click", function(event) {
   searchQuery = $("#inputSearch").val();
   $("#page1").css("display", "none");
 
-  youtubeAPI(searchQuery);
+  imageAPI(searchQuery);
 });
 
 $("img").on("click", function() {
-  var selectedURL = $(this).attr("src");
-  database.ref().push({
-    selectedURL
-  });
+  if (counter < 2) {
+    counter++;
+
+    var selectedURL = $(this).attr("src");
+    database.ref().push({
+      selectedURL
+    });
+  } else {
+    counter = 0;
+    if (page === 0) {
+      giffyAPI(searchQuery);
+      page++;
+    } else {
+      counter = 0;
+      youtubeAPI(searchQuery);
+    }
+  }
+
   // Count, when we hit three, call the next api
   // If we are already on the final API, then call final page
+});
+
+$("body").on("click", ".add", function() {
+  if (counter < 2) {
+    counter++;
+    var selectedURL = $(this).attr("url");
+    database.ref().push({
+      selectedURL
+    });
+  } else {
+    createPage();
+  }
 });
