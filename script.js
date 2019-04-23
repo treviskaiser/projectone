@@ -18,6 +18,26 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 // Function for pulling information from youtube
+function youtubeAPI(searchTerm) {
+  youtubeResults = [];
+
+  var queryURL =
+    "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=" +
+    searchTerm +
+    "&key=AIzaSyD0ANJZ_xV6795iaJd5Rm42wrZIqWnzxkI";
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+    var results = response.items;
+
+    for (var i = 0; i < 9; i++) {
+      youtubeResults.push(results[i].id.videoId);
+    }
+
+    populateVideos(youtubeResults);
+  });
+}
 function imageAPI(searchTerm) {
   var array = [];
   var flickerAPI =
@@ -35,22 +55,22 @@ function imageAPI(searchTerm) {
   });
 }
 
-// Function for pulling information from ODB
-function movieAPI(searchTerm) {
+// Function for pulling information from Giffy
+function giffyAPI(searchQuery) {
   var array = [];
-  //John's code
-  return array;
-}
-
-// Function for pulling information from from google images
-function googleAPI(searchTerm) {
-  var array = [];
-  var apiKey = "&key=AIzaSyDKNhj5yvKuPDXdxrlQeKvGSH6WVq2owEM";
-  var requestURL = "https://www.googleapis.com/customsearch/v1?q=";
-  var finalURL = requestURL + searchTerm + apiKey;
-
-  $.ajax({ url: finalURL, method: "GET" }).then(function(response) {});
-  return array;
+  var apiKey = "gOFweX8DFJNwBF8oAknmZryJWr6BXO4U";
+  var requestURL =
+    "https://api.giphy.com/v1/gifs/search?lang=en&limit=10&rating=PG&api_key=" +
+    apiKey +
+    "&q=";
+  var finalURL = requestURL + searchQuery;
+  $.ajax({ url: finalURL, method: "GET" }).then(function(response) {
+    console.log(response);
+    for (var i = 0; i < 9; i++) {
+      array.push(response.data[i].images.original.webp);
+    }
+    populateResults(array);
+  });
 }
 
 function createPage() {
@@ -63,6 +83,18 @@ function populateResults(arry) {
     $("#card" + i)
       .attr("src", arry[i])
       .attr("width", "200");
+  }
+}
+
+function populateVideos(arry) {
+  $("#page2").css("display", "block");
+  for (var i = 0; i < arry.length; i++) {
+    $("#card" + i).css("display", "none");
+    $("#card-" + i).append(
+      '<div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="https://www.youtube.com/embed/' +
+        arry[i] +
+        '"allowfullscreen></iframe></div>'
+    );
   }
 }
 
