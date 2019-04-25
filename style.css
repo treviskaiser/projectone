@@ -2,3 +2,53 @@ body {
   background-image: url("wood.png");
   background-size: cover;
 }
+
+#searchSubmit {
+  /* vertical-align: middle; */
+  /* position: relative; */
+  margin-top: 40%;
+}
+
+img {
+  max-width: 200px;
+  max-height: 200px;
+  vertical-align: middle;
+}
+
+#imageBoxes {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.btn {
+  background-color: #337ab7;
+  color: white;
+}
+
+.card {
+  padding: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+#page2 {
+  max-height: 90%;
+}
+
+/* 
+#row1 {
+  max-height: 33.333%;
+}
+
+#row2 {
+  max-height: 33.333%;
+}
+
+#row3 {
+  max-height: 33.333%;
+} */
