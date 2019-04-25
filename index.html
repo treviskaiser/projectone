@@ -12,6 +12,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  />
     <link rel="stylesheet" href="style.css" />
     <title>InstaFan</title>
   </head>
@@ -19,31 +23,37 @@
     <!-- Main Page Search Bar -->
     <div id="page1">
         <div class="container">
-          <div class="text-center">
-        <form class="form-inline">
-            <div class="form-group mb-2">
-              <input type="text" class="form-control" id="inputSearch">
-            
-            <a
-            href="#"
-            class="btn btn-primary"
-            id="inputButton">Submit</a>
-        </div>
-          </form>
+          <div class="row">
+            <div class="col-sm-12 col-md-8 col-lg-8 m-auto">
+              <div class="input-group mb-3" id="searchSubmit">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search Name"
+                  aria-label="Search Name"
+                  aria-describedby="button-addon2"
+                  id="inputSearch"
+                />
+                <div class="input-group-append">
+                  <button
+                    class="btn btn-outline-secondary"
+                    type="button"
+                    id="inputButton"
+                    id="button-addon2"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      </div>
-      
-      
-      
-      
-      
-    
 
     <!-- Image Page Windows -->
     <div id="page2">
-      <div class="container">
-        <div class="row">
+      <div class="container" id="imageBoxes">
+        <div class="row" id="row1">
           <div class="card col-sm-4" id="card-0">
             <img src="..." id="card0" class="card-img-top" alt="..." />
           </div>
@@ -57,7 +67,7 @@
             
           </div>
         </div>
-        <div class="row">
+        <div class="row" id="row2">
           <div class="card col-sm-4" id="card-3">
             <img src="..." id="card3" class="card-img-top" alt="..." />
             
@@ -74,7 +84,7 @@
           </div>
         </div>
       
-      <div class="row">
+      <div class="row" id="row3">
         <div class="card col-sm-4" id="card-6">
           <img src="..." id="card6" class="card-img-top" alt="..." />
          
@@ -92,11 +102,68 @@
       </div>
     
     <!-- YouTube Page Windows -->
+    <div id="page3">
+        <div class="container" id="imageBoxes">
+          <div class="row" id="row1">
+            <div class="card col-sm-4" id="card-0">
+              <img src="..." id="card0" class="card-img-top" alt="..." />
+            </div>
+            <div class="card col-sm-4" id="card-1">
+              <img src="..." id="card1" class="card-img-top" alt="..." />
+  
+            </div>
+  
+            <div class="card col-sm-4" id="card-2">
+              <img src="..." id="card2" class="card-img-top" alt="..." />
+              
+            </div>
+          </div>
+          <div class="row" id="row2">
+            <div class="card col-sm-4" id="card-3">
+              <img src="..." id="card3" class="card-img-top" alt="..." />
+              
+            </div>
+  
+            <div class="card col-sm-4" id="card-4">
+              <img src="..." id="card4" class="card-img-top" alt="..." />
+              
+            </div>
+  
+            <div class="card col-sm-4" id="card-5">
+              <img src="..." id="card5" class="card-img-top" alt="..." />
+              
+            </div>
+          </div>
+        
+        <div class="row" id="row3">
+          <div class="card col-sm-4" id="card-6">
+            <img src="..." id="card6" class="card-img-top" alt="..." />
+           
+          </div>
+  
+          <div class="card col-sm-4" id="card-7">
+            <img src="..." id="card7" class="card-img-top" alt="..." />
+           
+          </div>
+  
+          <div class="card col-sm-4" id="card-8">
+            <img src="..." id="card8" class="card-img-top" alt="..." />
+            
+          </div>
+        </div>
 
     <!-- Movie Poster Page Windows -->
 
     <!-- Desktop Display -->
+    
     <div id="page3"></div>
+    <div class="container" id="youtubeCaroussel">
+    </div>
+
+
+
+
+    
     <script
       src="https://code.jquery.com/jquery-3.4.0.js"
       integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
