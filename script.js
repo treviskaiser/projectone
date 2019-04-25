@@ -196,7 +196,12 @@ database.ref().on(
 
 $("body").on("click", "#reset", function() {
   database.ref().remove();
-  $("#page1").css("display", "block");
-  $("#page2").css("display", "none");
-  $("#page3").css("display", "none");
+  location.reload();
+  // counter = 0;
+  // page = 0;
+  // finalArray = [];
+
+  // $("#page1").css("display", "block");
+  // $("#page2").css("display", "none");
+  // $("#page3").css("display", "none");
 });
