@@ -95,7 +95,7 @@ function createPage() {
     );
   }
   $("#page2").append(
-    '<a href="#" class="btn btn-primary" id="reset">Reset Page</a>'
+    '<a href="#" class="btn btn-primary m-5" id="reset">Reset Page</a>'
   );
 }
 
