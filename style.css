@@ -4,8 +4,6 @@ body {
 }
 
 #searchSubmit {
-  /* vertical-align: middle; */
-  /* position: relative; */
   margin-top: 40%;
 }
 
@@ -39,16 +37,3 @@ img {
 #page2 {
   max-height: 90%;
 }
-
-/* 
-#row1 {
-  max-height: 33.333%;
-}
-
-#row2 {
-  max-height: 33.333%;
-}
-
-#row3 {
-  max-height: 33.333%;
-} */

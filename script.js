@@ -67,7 +67,6 @@ function giffyAPI(searchQuery) {
     "&q=";
   var finalURL = requestURL + searchQuery;
   $.ajax({ url: finalURL, method: "GET" }).then(function(response) {
-    console.log(response);
     for (var i = 0; i < 9; i++) {
       array.push(response.data[i].images.original.webp);
     }
