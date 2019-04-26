@@ -79,6 +79,7 @@ function createPage() {
   $("#page2").css("display", "block");
   $(".add").css("display", "none");
   $(".video-int").remove();
+  $("#head-bar").text("Welcome to your InstaFan Page");
 
   for (var i = 0; i < 6; i++) {
     $("#card" + i).attr("src", finalArray[i]);
